@@ -9,16 +9,16 @@ The physics implemented here is based on the classical flare gamma-ray literatur
 - Depth-resolved transport of flare-accelerated ions  
 - Bethe–Bloch stopping power with optional depth dependence  
 - Rigidity-based shock spectra & stochastic K₂ spectra  
-- Range-inversion \(E_0(E, X)\) solver  
+- Range-inversion E$\_{0}$(E, X) solver  
 - Modular cross-section framework  
-- Slice-wise production \(Q'(X)\) and cumulative yields \(Q(X)\)  
+- Slice-wise production Q$\^{'}$(X) and cumulative yields \(Q(X)\)  
 - CSV-based spectral sweeps  
 
 ---
 
 # 1. Scientific Background
 
-Energetic ions p, $\^{3}\He$, $\^{4}\He$ accelerated in flares collide with ambient nuclei (C, N, O, He), producing Li, Be, and B via **nuclear spallation**.
+Energetic ions p, $\^{3}He$, $\^{4}He$ accelerated in flares collide with ambient nuclei (C, N, O, He), producing Li, Be, and B via **nuclear spallation**.
 
 The instantaneous production rate for a reaction channel is:
 
