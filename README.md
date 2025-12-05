@@ -9,9 +9,9 @@ The physics implemented here is based on the classical flare gamma-ray literatur
 - Depth-resolved transport of flare-accelerated ions  
 - Bethe–Bloch stopping power with optional depth dependence  
 - Rigidity-based shock spectra & stochastic K₂ spectra  
-- Range-inversion E$\_{0}$(E, X) solver  
+- Range-inversion $E\_{0}(E, X)$ solver  
 - Modular cross-section framework  
-- Slice-wise production Q$\^{'}$(X) and cumulative yields \(Q(X)\)  
+- Slice-wise production $Q\^{'}(X)$ and cumulative yields \(Q(X)\)  
 - CSV-based spectral sweeps  
 
 ---
