@@ -59,7 +59,7 @@ This supports physically accurate propagation through chromospheric and photosph
 
 ---
 
-## 2.2 Range-inversion \(E_0(E,X)\) solver
+## 2.2 Range-inversion $E\_{0}(E, X)$ solver
 
 Continuous slowing down gives:
 
