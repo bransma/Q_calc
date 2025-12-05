@@ -18,7 +18,7 @@ The physics implemented here is based on the classical flare gamma-ray literatur
 
 # 1. Scientific Background
 
-Energetic ions (p, \(^{3}\)He, \(^{4}\)He) accelerated in flares collide with ambient nuclei (C, N, O, He), producing Li, Be, and B via **nuclear spallation**.
+Energetic ions p, $\^{3}\He$, $\^{4}\He$ accelerated in flares collide with ambient nuclei (C, N, O, He), producing Li, Be, and B via **nuclear spallation**.
 
 The instantaneous production rate for a reaction channel is:
 
@@ -49,10 +49,10 @@ $$
 
 A detailed Bethe–Bloch implementation includes:
 
-- Projectile charge \(z\)  
-- Mixture-averaged target \(Z/A\)  
-- Electron density profiles \(\rho(X)\)  
-- Effective ionization potential \(I(X)\)  
+- Projectile charge z
+- Mixture-averaged target $\Z/A\$ 
+- Electron density profiles $\rho(X)$  
+- Effective ionization potential I(X)  
 - Optional density effects  
 
 This supports physically accurate propagation through chromospheric and photospheric layers.
@@ -119,11 +119,15 @@ p + \mathrm{CNO} \rightarrow \mathrm{LiBeB}\
 $$
 
 $$
-\^{3}\mathrm{He}\ + \^4\mathrm{He} \rightarrow \^6\mathrm{Li}\
+\^{3}\mathrm{He}\ + \^{4}\mathrm{He} \rightarrow \^{6}\mathrm{Li}\
 $$
 
-\(^{4}\mathrm{He} + ^4\mathrm{He} \rightarrow ^6\mathrm{Li}, ^7\mathrm{Li}\)
-\(\alpha + \mathrm{CNO} \rightarrow \mathrm{LiBeB}\)
+$$
+\^{4}\mathrm{He}\ + \^{4}\mathrm{He} \rightarrow \^{6}\mathrm{Li}\, \^{7}\mathrm{Li}\
+$$
+
+$$
+\alpha + \mathrm{CNO} \rightarrow \mathrm{LiBeB}\
 $$
 
 Cross sections are read from CSV and interpolated with:
