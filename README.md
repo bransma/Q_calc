@@ -114,12 +114,12 @@ This allows physically consistent cutoffs for p, He-3, and He-4.
 
 All forward LiBeB-producing channels are supported:
 $$
-- \(p + \mathrm{CNO} \rightarrow \mathrm{LiBeB}\)
-- \(^{3}\mathrm{He} + ^4\mathrm{He} \rightarrow ^6\mathrm{Li}\)
-- \(^{4}\mathrm{He} + ^4\mathrm{He} \rightarrow ^6\mathrm{Li}, ^7\mathrm{Li}\)
-- \(\alpha + \mathrm{CNO} \rightarrow \mathrm{LiBeB}\)
+\(p + \mathrm{CNO} \rightarrow \mathrm{LiBeB}\)
+\(^{3}\mathrm{He} + ^4\mathrm{He} \rightarrow ^6\mathrm{Li}\)
+\(^{4}\mathrm{He} + ^4\mathrm{He} \rightarrow ^6\mathrm{Li}, ^7\mathrm{Li}\)
+\(\alpha + \mathrm{CNO} \rightarrow \mathrm{LiBeB}\)
 $$
-- 
+
 Cross sections are read from CSV and interpolated with:
 
 - Linear  
