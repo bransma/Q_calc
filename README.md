@@ -67,6 +67,10 @@ $$
 X = \int_E^{E_0} \frac{dE'}{S(E')}.
 $$
 
+$$
+X \equiv \int_0^{x} \rho(x')\,dx'
+$$
+
 We define the *range function*:
 
 $$
