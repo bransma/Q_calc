@@ -11,7 +11,7 @@ The physics implemented here is based on the classical flare gamma-ray literatur
 - Rigidity-based shock spectra & stochastic K₂ spectra  
 - Range-inversion $E\_{0}(E, X)$ solver  
 - Modular cross-section framework  
-- Slice-wise production $Q\^{'}(X)$ and cumulative yields \(Q(X)\)  
+- Slice-wise production Q'(X) and cumulative yields Q(X)  
 - CSV-based spectral sweeps  
 
 ---
@@ -50,7 +50,7 @@ $$
 A detailed Bethe–Bloch implementation includes:
 
 - Projectile charge z
-- Mixture-averaged target $\Z/A\$ 
+- Mixture-averaged target Z/A 
 - Electron density profiles $\rho(X)$  
 - Effective ionization potential I(X)  
 - Optional density effects  
@@ -154,7 +154,7 @@ $$
 
 The framework produces:
 
-- Per-slice \(Q'(X)\)  
+- Per-slice Q'(X)  
 - Integrated Q  
 - CSV output for parameter sweeps  
 - Depth-profiles for each channel  
