@@ -68,7 +68,7 @@ X = \int_E^{E_0} \frac{dE'}{S(E')}.
 $$
 
 $$
-X \equiv \int_0^{x} \rho(x')\,dx'
+X \equiv \int_0^{x} \rho(x')\ dx'
 $$
 
 We define the *range function*:
@@ -107,7 +107,7 @@ $$
 Species-dependent cutoffs satisfy the Murphy–Dermer–Ramaty (1987) condition:
 
 $$
-v(E_{0,i})\,R(E_{0,i}) = v(E_{0,p})\,R(E_{0,p}).
+v(E_{0,i})\ R(E_{0,i}) = v(E_{0,p})\ R(E_{0,p}).
 $$
 
 This allows physically consistent cutoffs for p, He-3, and He-4.
