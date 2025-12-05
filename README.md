@@ -113,8 +113,9 @@ This allows physically consistent cutoffs for p, He-3, and He-4.
 ## 2.4 Cross Sections
 
 All forward LiBeB-producing channels are supported:
+
 $$
-\p + \mathrm{CNO} \rightarrow \mathrm{LiBeB}\.
+p + \mathrm{CNO} \rightarrow \mathrm{LiBeB}\.
 $$
 
 \(^{3}\mathrm{He} + ^4\mathrm{He} \rightarrow ^6\mathrm{Li}\)
