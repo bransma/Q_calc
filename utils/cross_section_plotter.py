@@ -2,7 +2,7 @@ import argparse
 import os
 import matplotlib.pyplot as plt
 import numpy as np
-from cross_section_channels import CrossSectionReader
+from cross_section_channels import CrossSectionChannels
 
 class CrossSectionPlotUtils:
     """
@@ -17,7 +17,7 @@ class CrossSectionPlotUtils:
         Row 3: p+13C, He+He (combined: 3He4He + 4He4He)
     """
 
-    def __init__(self, reader: CrossSectionReader, displaytype: str = "show", dpi: int = 300):
+    def __init__(self, reader: CrossSectionChannels, displaytype: str = "show", dpi: int = 300):
             self.reader = reader
             self.displaytype = displaytype.lower()
             self.dpi = dpi
@@ -323,7 +323,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    reader = CrossSectionReader("./csv")
+    reader = CrossSectionChannels("../csv")
     reader.read_all()
     utils = CrossSectionPlotUtils(reader, displaytype=args.displaytype, dpi=args.dpi)
 

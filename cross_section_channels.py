@@ -7,7 +7,7 @@ from typing import Dict, Tuple, Callable, List
 CrossSectionData = Dict[str, Tuple[np.ndarray, np.ndarray]]
 CrossSectionInterpolators = Dict[str, Callable[[float | np.ndarray], float]]
 
-class CrossSectionReader:
+class CrossSectionChannels:
     """
     Reads cross section CSV files from ./csv/.
     Interpolation method is configurable: "linear", "pchip", or "loglog".
@@ -17,16 +17,27 @@ class CrossSectionReader:
 
     # --- All available keys ---
     all_keys: List[str] = [
-        "3He4He_a6",
-        "4He4He_a6","4He4He_a7",
-        "4He12C_a6","4He12C_a7","4He12C_a9","4He12C_a10","4He12C_a11",
-        "4He14N_a6","4He14N_a7","4He14N_a9","4He14N_a10","4He14N_a11",
-        "4He16O_a6","4He16O_a7","4He16O_a9","4He16O_a10","4He16O_a11",
         "P12C_a6","P12C_a7","P12C_a9","P12C_a10","P12C_a11",
         "P13C_a6","P13C_a9","P13C_a10",
         "P14N_a6","P14N_a7","P14N_a9","P14N_a10","P14N_a11",
-        "P16O_a6","P16O_a7","P16O_a9","P16O_a10","P16O_a11"
+        "P16O_a6","P16O_a7","P16O_a9","P16O_a10","P16O_a11",
+        "4He12C_a6","4He12C_a7","4He12C_a9","4He12C_a10","4He12C_a11",
+        "4He14N_a6","4He14N_a7","4He14N_a9","4He14N_a10","4He14N_a11",
+        "4He16O_a6","4He16O_a7","4He16O_a9","4He16O_a10","4He16O_a11",
+        "4He4He_a6", "4He4He_a7","3He4He_a6"
     ]
+
+    all_p: List[str] = ["P12C_a6","P12C_a7","P12C_a9","P12C_a10","P12C_a11",
+        "P13C_a6","P13C_a9","P13C_a10",
+        "P14N_a6","P14N_a7","P14N_a9","P14N_a10","P14N_a11",
+        "P16O_a6","P16O_a7","P16O_a9","P16O_a10","P16O_a11"]
+
+    all_4He: List[str] = ["4He12C_a6","4He12C_a7","4He12C_a9","4He12C_a10","4He12C_a11",
+        "4He14N_a6","4He14N_a7","4He14N_a9","4He14N_a10","4He14N_a11",
+        "4He16O_a6","4He16O_a7","4He16O_a9","4He16O_a10","4He16O_a11",
+        "4He4He_a6", "4He4He_a7"]
+
+    all_3He: List[str] = ["3He4He_a6"]
 
     # --- Projectile-target groups ---
     P12C = ["P12C_a6", "P12C_a7", "P12C_a9", "P12C_a10", "P12C_a11"]
@@ -39,22 +50,45 @@ class CrossSectionReader:
     HeHe = ["3He4He_a6","4He4He_a6","4He4He_a7"]
 
     # --- Product isotope groups ---
-    A6  = ["3He4He_a6","4He4He_a6","4He12C_a6","4He14N_a6","4He16O_a6",
-           "P12C_a6","P13C_a6","P14N_a6","P16O_a6"]
-    A7  = ["4He4He_a7","4He12C_a7","4He14N_a7","4He16O_a7",
-           "P12C_a7","P14N_a7","P16O_a7"]
-    A9  = ["4He12C_a9","4He14N_a9","4He16O_a9",
-           "P12C_a9","P13C_a9","P14N_a9","P16O_a9"]
-    A10 = ["4He12C_a10","4He14N_a10","4He16O_a10",
-           "P12C_a10","P13C_a10","P14N_a10","P16O_a10"]
-    A11 = ["4He12C_a11","4He14N_a11","4He16O_a11",
-           "P12C_a11","P14N_a11","P16O_a11"]
+    A6  = ["P12C_a6","P13C_a6","P14N_a6","P16O_a6",
+           "4He4He_a6","4He12C_a6","4He14N_a6","4He16O_a6","3He4He_a6"]
+    A7  = ["P12C_a7","P14N_a7","P16O_a7",
+           "4He4He_a7","4He12C_a7","4He14N_a7","4He16O_a7"]
+    A9  = ["P12C_a9","P13C_a9","P14N_a9","P16O_a9",
+           "4He12C_a9","4He14N_a9","4He16O_a9"]
+    A10 = ["P12C_a10","P13C_a10","P14N_a10","P16O_a10",
+           "4He12C_a10","4He14N_a10","4He16O_a10"]
+    A11 = ["P12C_a11","P14N_a11","P16O_a11",
+           "4He12C_a11","4He14N_a11","4He16O_a11"]
 
     def __init__(self, csv_dir: str = "./csv", interp_kind: str = "linear"):
         self.csv_dir = csv_dir
         self.interp_kind = interp_kind.lower()
         self.cross_section_data_mb: CrossSectionData = {}
         self.cross_section_interp: CrossSectionInterpolators = {}
+        self.keys_dict = {
+        "all_keys": CrossSectionChannels.all_keys,
+        "all_p": CrossSectionChannels.all_p,
+        "all_4He": CrossSectionChannels.all_4He,
+        "all_3He": CrossSectionChannels.all_3He,
+        "P12C": CrossSectionChannels.P12C,
+        "P13C": CrossSectionChannels.P13C,
+        "PN": CrossSectionChannels.PN,
+        "PO": CrossSectionChannels.PO,
+        "HeC": CrossSectionChannels.HeC,
+        "HeO": CrossSectionChannels.HeO,
+        "HeN": CrossSectionChannels.HeN,
+        "HeHe": CrossSectionChannels.HeHe,
+        "A6": CrossSectionChannels.A6,
+        "A7": CrossSectionChannels.A7,
+        "A9": CrossSectionChannels.A9,
+        "A10": CrossSectionChannels.A10,
+        "A11": CrossSectionChannels.A11
+        }
+
+    def get_keys(self, keys_as_string) -> list[str]:
+        keys = self.keys_dict[keys_as_string]
+        return keys
 
     def load_csv(self, key: str) -> None:
         """Load csv/{key}.csv into memory and build interpolator."""
